@@ -1,7 +1,6 @@
 import React from "react";
 import { products } from "../../constants/products";
 import ProductTile from "@/components/ProductTile";
-import { ProductInterface } from "@/interfaces/product";
 
 const page = () => {
   return (
@@ -10,8 +9,8 @@ const page = () => {
         Our catalog:
       </div>
       <div className="flex flex-wrap gap-5 justify-center">
-        {products.map((product) => (
-          <ProductTile product={product} />
+        {products.map((product, i) => (
+          <ProductTile product={product} key={i} />
         ))}
       </div>
     </div>
