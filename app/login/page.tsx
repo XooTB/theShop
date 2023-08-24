@@ -1,15 +1,29 @@
 "use client";
 
 import { E164Number } from "libphonenumber-js/core";
-import React, { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import Link from "next/link";
+import { useLogin } from "@/hooks/useLogin";
+import { useRouter } from "next/navigation";
 
 const page = () => {
   const [phoneNumber, setPhoneNumber] = useState<E164Number>();
+  const { login } = useLogin();
+  const router = useRouter();
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    const phone = phoneNumber;
+    // @ts-ignore
+    const password = e.target.password.value;
+    // All the validation logic goes here.
+    // Logic
+    // After validation. the Hook is triggered.
+    login(phone, password);
+    router.push("/dashboard");
+  };
 
   return (
     <div className="min-h-screen flex mt-10 justify-center ">
@@ -28,7 +42,11 @@ const page = () => {
             className="w-full h-14 rounded-md"
           />
           <label className="pt-5 mb-2 text-lg">Password: </label>
-          <input type="password" className="px-2 py-1 w-full h-10 rounded-lg" />
+          <input
+            type="password"
+            name="password"
+            className="px-2 py-1 w-full h-10 rounded-lg"
+          />
           <button className=" bg-slate-600 py-3 rounded-lg mt-5 w-full hover:bg-slate-500 text-white text-lg">
             Login
           </button>

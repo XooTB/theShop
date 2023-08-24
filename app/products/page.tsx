@@ -4,7 +4,7 @@ import ProductTile from "@/components/ProductTile";
 
 const page = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen mb-10">
       <div className="text-3xl font-semibold flex items-center justify-center my-10">
         Our catalog:
       </div>
