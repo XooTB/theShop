@@ -11,7 +11,7 @@ interface Product {
   description: string;
 }
 
-const AddProductForm: React.FC<AddProductFormProps> = ({ onAddProduct }) => {
+const page = ({ onAddProduct }: AddProductFormProps) => {
   const [product, setProduct] = useState<Product>({
     title: "",
     price: 0,
@@ -95,5 +95,3 @@ const AddProductForm: React.FC<AddProductFormProps> = ({ onAddProduct }) => {
     </form>
   );
 };
-
-export default AddProductForm;
