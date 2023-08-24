@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import PieChart from "@/components/PieChart";
 import TotalRevenue from "@/components/TotalRevenue";
